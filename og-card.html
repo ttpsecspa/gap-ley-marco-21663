@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta property="og:title" content="Agencia de Ciberseguridad - Ley 21.663 Chile">
+<meta property="og:description" content="10 agentes especializados y 10 skills para cumplimiento integral de la Ley Marco de Ciberseguridad de Chile. TTPSEC SPA - Powered by TTPSEC.AI">
+<meta property="og:image" content="og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Agencia Ciberseguridad Chile - TTPSEC SPA | Powered by TTPSEC.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cyan: #00F0FF;
+    --cyan-dim: #00a8b3;
+    --cyan-glow: rgba(0, 240, 255, 0.15);
+    --blue: #0055FF;
+    --dark-1: #030B12;
+    --dark-2: #081520;
+    --dark-3: #0c1f30;
+    --dark-4: #122a3d;
+    --text: #e0f0f8;
+    --text-dim: #6b8fa8;
+    --red: #FF3366;
+    --magenta: #c850ff;
+    --green: #00e676;
+    --yellow: #FFD600;
+  }
+
+  body {
+    background: var(--dark-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+  }
+
+  .og-card {
+    width: 1200px;
+    height: 630px;
+    background: var(--dark-1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* === BACKGROUND EFFECTS === */
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
+  }
+
+  .bg-glow-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(0,85,255,0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    animation: pulse1 8s ease-in-out infinite;
+  }
+
+  .bg-glow-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%);
+    filter: blur(50px);
+    animation: pulse2 10s ease-in-out infinite;
+  }
+
+  .bg-glow-3 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(200,80,255,0.05) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .scan-line {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,240,255,0.008) 2px,
+      rgba(0,240,255,0.008) 4px
+    );
+    pointer-events: none;
+  }
+
+  .hex-pattern {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 180px;
+    height: 180px;
+    opacity: 0.06;
+  }
+
+  .hex-pattern svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* === TOP BAR === */
+
+  .top-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 40px 0;
+  }
+
+  .shield-icon {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .shield-svg {
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 0 12px rgba(0,240,255,0.4));
+  }
+
+  .brand-label {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .brand-label span:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    opacity: 0.7;
+  }
+
+  .brand-label span:last-child {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,240,255,0.06);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 1px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0,230,118,0.6);
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  /* === MAIN CONTENT === */
+
+  .main-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px 0;
+  }
+
+  .title-section {
+    margin-bottom: 20px;
+  }
+
+  .chile-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .chile-flag::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background: linear-gradient(180deg, #fff 50%, #D52B1E 50%);
+    border-radius: 2px;
+    position: relative;
+    box-shadow: inset -12px 0 0 0 transparent;
+  }
+
+  .chile-flag::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text);
+    letter-spacing: -1px;
+  }
+
+  h1 .accent {
+    background: linear-gradient(135deg, var(--cyan) 0%, #00a8ff 50%, var(--magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ley-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cyan-dim);
+    background: rgba(0,240,255,0.05);
+    border: 1px solid rgba(0,240,255,0.12);
+    border-radius: 6px;
+    padding: 4px 12px;
+  }
+
+  .ley-tag .dot {
+    width: 5px;
+    height: 5px;
+    background: var(--cyan);
+    border-radius: 50%;
+  }
+
+  /* === AGENTS GRID === */
+
+  .agents-section {
+    margin-bottom: 16px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,240,255,0.15), transparent);
+  }
+
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .agent-card {
+    background: linear-gradient(135deg, rgba(0,240,255,0.04) 0%, rgba(0,85,255,0.02) 100%);
+    border: 1px solid rgba(0,240,255,0.08);
+    border-radius: 10px;
+    padding: 10px 10px 9px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .agent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color, var(--cyan)), transparent);
+    opacity: 0.4;
+  }
+
+  .agent-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    background: var(--icon-bg);
+    box-shadow: 0 2px 8px var(--icon-shadow);
+  }
+
+  .agent-info {
+    min-width: 0;
+  }
+
+  .agent-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+
+  .agent-role {
+    font-size: 8.5px;
+    color: var(--text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+  }
+
+  /* Agent color variants */
+  .agent-card.blue    { --accent-color: #3b82f6; --icon-bg: rgba(59,130,246,0.15); --icon-shadow: rgba(59,130,246,0.2); }
+  .agent-card.red     { --accent-color: #ef4444; --icon-bg: rgba(239,68,68,0.15);  --icon-shadow: rgba(239,68,68,0.2); }
+  .agent-card.magenta { --accent-color: #c850ff; --icon-bg: rgba(200,80,255,0.15); --icon-shadow: rgba(200,80,255,0.2); }
+  .agent-card.cyan    { --accent-color: #00F0FF; --icon-bg: rgba(0,240,255,0.12);  --icon-shadow: rgba(0,240,255,0.2); }
+  .agent-card.yellow  { --accent-color: #FFD600; --icon-bg: rgba(255,214,0,0.12);  --icon-shadow: rgba(255,214,0,0.2); }
+  .agent-card.green   { --accent-color: #00e676; --icon-bg: rgba(0,230,118,0.12);  --icon-shadow: rgba(0,230,118,0.2); }
+
+  /* === SKILLS PILLS === */
+
+  .skills-section {
+    margin-bottom: 0;
+  }
+
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    background: rgba(0,240,255,0.04);
+    border: 1px solid rgba(0,240,255,0.1);
+    border-radius: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--cyan-dim);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+  .skill-pill .slash {
+    color: var(--cyan);
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  /* === BOTTOM BAR === */
+
+  .bottom-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px 20px;
+    border-top: 1px solid rgba(0,240,255,0.06);
+  }
+
+  .powered-by {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .powered-label {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .ttpsec-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ttpsec-icon {
+    width: 28px;
+    height: 28px;
+    position: relative;
+  }
+
+  .ttpsec-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, var(--cyan) 60%, #00a8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0,240,255,0.3));
+  }
+
+  .ttpsec-name .ai {
+    font-weight: 400;
+    font-size: 18px;
+    opacity: 0.8;
+  }
+
+  .stats {
+    display: flex;
+    gap: 24px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(0,240,255,0.4);
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .corner-accent {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+  }
+
+  .corner-accent.tl { top: 0; left: 0; border-top: 2px solid rgba(0,240,255,0.2); border-left: 2px solid rgba(0,240,255,0.2); }
+  .corner-accent.tr { top: 0; right: 0; border-top: 2px solid rgba(0,240,255,0.2); border-right: 2px solid rgba(0,240,255,0.2); }
+  .corner-accent.bl { bottom: 0; left: 0; border-bottom: 2px solid rgba(0,240,255,0.2); border-left: 2px solid rgba(0,240,255,0.2); }
+  .corner-accent.br { bottom: 0; right: 0; border-bottom: 2px solid rgba(0,240,255,0.2); border-right: 2px solid rgba(0,240,255,0.2); }
+
+  /* === ANIMATIONS === */
+
+  @keyframes pulse1 {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  @keyframes pulse2 {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.15); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes float-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .agent-card {
+    animation: float-in 0.5s ease-out both;
+  }
+  .agent-card:nth-child(1) { animation-delay: 0.05s; }
+  .agent-card:nth-child(2) { animation-delay: 0.1s; }
+  .agent-card:nth-child(3) { animation-delay: 0.15s; }
+  .agent-card:nth-child(4) { animation-delay: 0.2s; }
+  .agent-card:nth-child(5) { animation-delay: 0.25s; }
+  .agent-card:nth-child(6) { animation-delay: 0.3s; }
+  .agent-card:nth-child(7) { animation-delay: 0.35s; }
+  .agent-card:nth-child(8) { animation-delay: 0.4s; }
+  .agent-card:nth-child(9) { animation-delay: 0.45s; }
+  .agent-card:nth-child(10) { animation-delay: 0.5s; }
+
+  .skill-pill {
+    animation: float-in 0.4s ease-out both;
+  }
+  .skill-pill:nth-child(1) { animation-delay: 0.6s; }
+  .skill-pill:nth-child(2) { animation-delay: 0.65s; }
+  .skill-pill:nth-child(3) { animation-delay: 0.7s; }
+  .skill-pill:nth-child(4) { animation-delay: 0.75s; }
+  .skill-pill:nth-child(5) { animation-delay: 0.8s; }
+  .skill-pill:nth-child(6) { animation-delay: 0.85s; }
+  .skill-pill:nth-child(7) { animation-delay: 0.9s; }
+  .skill-pill:nth-child(8) { animation-delay: 0.95s; }
+  .skill-pill:nth-child(9) { animation-delay: 1.0s; }
+  .skill-pill:nth-child(10) { animation-delay: 1.05s; }
+</style>
+</head>
+<body>
+
+<div class="og-card">
+  <!-- Background effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
+  <div class="scan-line"></div>
+  <div class="corner-accent tl"></div>
+  <div class="corner-accent tr"></div>
+  <div class="corner-accent bl"></div>
+  <div class="corner-accent br"></div>
+
+  <!-- Hex pattern decoration -->
+  <div class="hex-pattern">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 10L170 50V130L100 170L30 130V50L100 10Z" stroke="currentColor" stroke-width="1" fill="none" color="#00F0FF"/>
+      <path d="M100 40L145 65V115L100 140L55 115V65L100 40Z" stroke="currentColor" stroke-width="0.5" fill="none" color="#00F0FF"/>
+      <path d="M100 70L120 82V108L100 120L80 108V82L100 70Z" stroke="currentColor" stroke-width="0.5" fill="none" color="#00F0FF"/>
+    </svg>
+  </div>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="shield-icon">
+      <svg class="shield-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4L6 12V24C6 35.1 13.8 45.3 24 48C34.2 45.3 42 35.1 42 24V12L24 4Z" fill="url(#shield-grad)" stroke="#00F0FF" stroke-width="1.5"/>
+        <path d="M20 24L23 27L28 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24" cy="24" r="10" stroke="rgba(0,240,255,0.3)" stroke-width="0.5" fill="none"/>
+        <defs>
+          <linearGradient id="shield-grad" x1="6" y1="4" x2="42" y2="48">
+            <stop offset="0%" stop-color="rgba(0,240,255,0.15)"/>
+            <stop offset="100%" stop-color="rgba(0,85,255,0.08)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="brand-label">
+        <span>Ciberseguridad</span>
+        <span>Cumplimiento Normativo Chile</span>
+      </div>
+    </div>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      SISTEMA ACTIVO
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Title -->
+    <div class="title-section">
+      <div class="chile-flag">&nbsp;&nbsp;Republica de Chile</div>
+      <h1>Agencia de <span class="accent">Ciberseguridad</span></h1>
+      <div class="ley-tag">
+        <span class="dot"></span>
+        LEY 21.663 — Marco de Ciberseguridad
+      </div>
+    </div>
+
+    <!-- Agents -->
+    <div class="agents-section">
+      <div class="section-label">10 Agentes Especializados</div>
+      <div class="agents-grid">
+        <div class="agent-card blue">
+          <div class="agent-icon">🎯</div>
+          <div class="agent-info">
+            <div class="agent-name">Director</div>
+            <div class="agent-role">Cumplimiento</div>
+          </div>
+        </div>
+        <div class="agent-card red">
+          <div class="agent-icon">🛡️</div>
+          <div class="agent-info">
+            <div class="agent-name">Analista</div>
+            <div class="agent-role">Ciberseguridad</div>
+          </div>
+        </div>
+        <div class="agent-card magenta">
+          <div class="agent-icon">⚖️</div>
+          <div class="agent-info">
+            <div class="agent-name">Abogado</div>
+            <div class="agent-role">Regulatorio</div>
+          </div>
+        </div>
+        <div class="agent-card cyan">
+          <div class="agent-icon">👤</div>
+          <div class="agent-info">
+            <div class="agent-name">Delegado</div>
+            <div class="agent-role">Ciberseguridad</div>
+          </div>
+        </div>
+        <div class="agent-card yellow">
+          <div class="agent-icon">🔍</div>
+          <div class="agent-info">
+            <div class="agent-name">Auditor</div>
+            <div class="agent-role">GAP Analysis</div>
+          </div>
+        </div>
+        <div class="agent-card blue">
+          <div class="agent-icon">🏗️</div>
+          <div class="agent-info">
+            <div class="agent-name">Arquitecto</div>
+            <div class="agent-role">Seguridad</div>
+          </div>
+        </div>
+        <div class="agent-card red">
+          <div class="agent-icon">🚨</div>
+          <div class="agent-info">
+            <div class="agent-name">Gestor</div>
+            <div class="agent-role">Incidentes</div>
+          </div>
+        </div>
+        <div class="agent-card green">
+          <div class="agent-icon">🔐</div>
+          <div class="agent-info">
+            <div class="agent-name">Oficial</div>
+            <div class="agent-role">Privacidad</div>
+          </div>
+        </div>
+        <div class="agent-card yellow">
+          <div class="agent-icon">🎓</div>
+          <div class="agent-info">
+            <div class="agent-name">Capacitador</div>
+            <div class="agent-role">Formacion</div>
+          </div>
+        </div>
+        <div class="agent-card cyan">
+          <div class="agent-icon">📋</div>
+          <div class="agent-info">
+            <div class="agent-name">Gestor</div>
+            <div class="agent-role">Documental</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-section">
+      <div class="section-label">10 Skills Operativos</div>
+      <div class="skills-row">
+        <div class="skill-pill"><span class="slash">/</span>gap-analysis</div>
+        <div class="skill-pill"><span class="slash">/</span>clasificar-incidente</div>
+        <div class="skill-pill"><span class="slash">/</span>reporte-csirt</div>
+        <div class="skill-pill"><span class="slash">/</span>designar-delegado</div>
+        <div class="skill-pill"><span class="slash">/</span>plan-contencion</div>
+        <div class="skill-pill"><span class="slash">/</span>inscripcion-anci</div>
+        <div class="skill-pill"><span class="slash">/</span>politica-ciberseguridad</div>
+        <div class="skill-pill"><span class="slash">/</span>calculo-sanciones</div>
+        <div class="skill-pill"><span class="slash">/</span>ejercicio-simulacion</div>
+        <div class="skill-pill"><span class="slash">/</span>checklist-oiv</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="powered-by">
+      <span class="powered-label">TTPSEC SPA &mdash; Powered by</span>
+      <div class="ttpsec-logo">
+        <svg class="ttpsec-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="30" height="30" rx="7" stroke="url(#logo-grad)" stroke-width="1.5" fill="rgba(0,240,255,0.05)"/>
+          <path d="M8 11H24M16 11V23" stroke="#00F0FF" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="16" cy="11" r="2" fill="#00F0FF" opacity="0.4"/>
+          <circle cx="16" cy="23" r="2" fill="#00F0FF" opacity="0.4"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#00F0FF"/>
+              <stop offset="100%" stop-color="#0055FF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="ttpsec-name">TTPSEC<span class="ai">.AI</span></span>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">10</span>
+        <span class="stat-label">Agentes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">10</span>
+        <span class="stat-label">Skills</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Normas</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">24</span>
+        <span class="stat-label">Semanas</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
