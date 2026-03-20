@@ -1,3 +1,38 @@
+# Dependencies
 node_modules/
+
+# Claude Code plugin (agentes, skills, configuracion interna)
 .claude/
+
+# Local dev server
 server.mjs
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+credentials.*
+secrets.*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+*.tmp
+*.bak
+~$*
