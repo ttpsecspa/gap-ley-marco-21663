@@ -346,9 +346,33 @@ body {
 .section.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
+/* Disclaimer banner */
+.disclaimer-banner {
+  background: linear-gradient(90deg, #1a1a2e, #16213e);
+  color: #94a3b8;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(0,210,255,0.15);
+}
+.disclaimer-banner strong { color: #00d2ff; }
+.disclaimer-footer {
+  background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+  color: #64748b;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 11px;
+  line-height: 1.8;
+  border-top: 1px solid rgba(0,210,255,0.1);
+  margin-top: 40px;
+}
+.disclaimer-footer .powered { color: #00d2ff; font-weight: 700; font-size: 13px; margin-top: 8px; }
+.disclaimer-footer .legal { max-width: 700px; margin: 0 auto; }
+
 /* Print styles */
 @media print {
-  .nav, .steps-bar, .btn-group { display: none; }
+  .nav, .steps-bar, .btn-group, .disclaimer-banner { display: none; }
   .section { display: block !important; page-break-inside: avoid; }
   .card { box-shadow: none; border: 1px solid #ddd; }
 }
@@ -364,6 +388,11 @@ body {
 </style>
 </head>
 <body>
+
+<!-- DISCLAIMER BANNER -->
+<div class="disclaimer-banner">
+  &#9888;&#65039; <strong>Plataforma académica y educativa.</strong> Este sitio no está afiliado, asociado ni respaldado por ningún ente gubernamental, la ANCI, ni el Gobierno de Chile. No reemplaza una auditoría formal de ciberseguridad ni constituye asesoría legal.
+</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -389,7 +418,7 @@ body {
     </div>
     <div class="step-item" onclick="goStep(2)">
       <div class="step-num">2</div>
-      <div class="step-text">Evaluacion</div>
+      <div class="step-text">Evaluación</div>
     </div>
     <div class="step-item" onclick="goStep(3)">
       <div class="step-num">3</div>
@@ -420,7 +449,7 @@ body {
       </div>
       <div class="form-grid">
         <div class="form-group">
-          <label class="form-label">Razon Social</label>
+          <label class="form-label">Razón Social</label>
           <input class="form-input" id="empresa-nombre" placeholder="Ej: Empresa Nacional de Energia S.A." oninput="autoComplete()">
         </div>
         <div class="form-group">
@@ -437,8 +466,8 @@ body {
             <option value="transporte">Transporte</option>
             <option value="banca">Banca y Servicios Financieros</option>
             <option value="salud">Salud</option>
-            <option value="gobierno">Administracion del Estado</option>
-            <option value="educacion">Educacion Superior</option>
+            <option value="gobierno">Administración del Estado</option>
+            <option value="educacion">Educación Superior</option>
             <option value="comercio">Comercio y Retail</option>
             <option value="mineria">Mineria</option>
             <option value="tecnologia">Tecnologia</option>
@@ -456,17 +485,17 @@ body {
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Tipo de Institucion</label>
+          <label class="form-label">Tipo de Institución</label>
           <select class="form-select" id="empresa-tipo">
             <option value="">Seleccionar...</option>
-            <option value="publica">Organismo publico</option>
-            <option value="empresa-publica">Empresa publica</option>
-            <option value="privada">Institucion privada</option>
-            <option value="concesionaria">Concesionaria de servicio publico</option>
+            <option value="publica">Organismo público</option>
+            <option value="empresa-publica">Empresa pública</option>
+            <option value="privada">Institución privada</option>
+            <option value="concesionaria">Concesionaria de servicio público</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Calificacion Ley 21.663</label>
+          <label class="form-label">Calificación Ley 21.663</label>
           <select class="form-select" id="empresa-calificacion" onchange="autoComplete()">
             <option value="">Seleccionar...</option>
             <option value="esencial">Servicio Esencial (Art. 4)</option>
@@ -489,7 +518,7 @@ body {
         <div id="auto-text" style="font-size:12px; color:var(--gray-600);"></div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="goStep(2)">Iniciar Evaluacion →</button>
+        <button class="btn btn-primary" onclick="goStep(2)">Iniciar Evaluación →</button>
       </div>
     </div>
   </div>
@@ -500,7 +529,7 @@ body {
       <div class="card-header">
         <div class="card-title">
           <div class="card-icon" style="background:var(--warning-light);">📊</div>
-          Evaluacion de Cumplimiento
+          Evaluación de Cumplimiento
         </div>
         <div style="font-size:12px; color:var(--gray-500);">Nivel 0=Inexistente | 5=Optimizado</div>
       </div>
@@ -649,20 +678,20 @@ body {
 // === DATA ===
 const DOMAINS = [
   { id: 1, ref: 'Art. 7a', name: 'Politica de Ciberseguridad', cat: 'gov', target: 3 },
-  { id: 2, ref: 'Art. 8a', name: 'Sistema de Gestion de Seguridad (SGSI)', cat: 'gov', target: 4 },
+  { id: 2, ref: 'Art. 8a', name: 'Sistema de Gestión de Seguridad (SGSI)', cat: 'gov', target: 4 },
   { id: 3, ref: 'Art. 8b', name: 'Registro de acciones de seguridad', cat: 'ops', target: 3 },
   { id: 4, ref: 'Art. 8c', name: 'Plan de continuidad operacional (BCP/DRP)', cat: 'ops', target: 4 },
   { id: 5, ref: 'Art. 8d', name: 'Auditorias periodicas de seguridad', cat: 'ops', target: 3 },
-  { id: 6, ref: 'Art. 8e, IG4', name: 'Medidas de contencion de incidentes', cat: 'ops', target: 4 },
+  { id: 6, ref: 'Art. 8e, IG4', name: 'Medidas de contención de incidentes', cat: 'ops', target: 4 },
   { id: 7, ref: 'Art. 8f', name: 'Certificaciones de seguridad', cat: 'ops', target: 3 },
-  { id: 8, ref: 'Art. 8g', name: 'Programa de capacitacion y ciberhigiene', cat: 'ops', target: 3 },
+  { id: 8, ref: 'Art. 8g', name: 'Programa de capacitación y ciberhigiene', cat: 'ops', target: 3 },
   { id: 9, ref: 'Art. 8i, IG3', name: 'Delegado de Ciberseguridad designado', cat: 'gov', target: 3 },
-  { id: 10, ref: 'Art. 9, IG1/2', name: 'Inscripcion en plataforma ANCI', cat: 'rep', target: 3 },
+  { id: 10, ref: 'Art. 9, IG1/2', name: 'Inscripción en plataforma ANCI', cat: 'rep', target: 3 },
   { id: 11, ref: 'Art. 9', name: 'Procedimiento de reporte en 3 horas', cat: 'rep', target: 4 },
-  { id: 12, ref: 'Res. 7', name: 'Taxonomia de incidentes implementada', cat: 'rep', target: 3 },
+  { id: 12, ref: 'Res. 7', name: 'Taxonomía de incidentes implementada', cat: 'rep', target: 3 },
   { id: 13, ref: 'IG4 Art.6', name: 'Cortafuegos configurados y mantenidos', cat: 'tec', target: 4 },
   { id: 14, ref: 'IG4 Art.5', name: 'Monitoreo EDR / SIEM / IDS-IPS', cat: 'tec', target: 4 },
-  { id: 15, ref: 'IG4 Art.2', name: 'Gestion de cuentas y contrasenas admin', cat: 'tec', target: 3 },
+  { id: 15, ref: 'IG4 Art.2', name: 'Gestión de cuentas y contraseñas admin', cat: 'tec', target: 3 },
 ];
 
 const LEVELS = ['0 - Inexistente','1 - Inicial','2 - Repetible','3 - Definido','4 - Gestionado','5 - Optimizado'];
@@ -671,12 +700,12 @@ const SECTOR_INFO = {
   energia: { esencial: true, desc: 'El sector energia es servicio esencial por ley (Art. 4). Incluye generacion, transmision y distribucion electrica.' },
   agua: { esencial: true, desc: 'Servicios de agua potable y saneamiento son servicios esenciales (Art. 4).' },
   telecom: { esencial: true, desc: 'Telecomunicaciones es servicio esencial. Incluye ISPs, operadores moviles y fijos.' },
-  transporte: { esencial: true, desc: 'Transporte publico y logistica critica son servicios esenciales (Art. 4).' },
+  transporte: { esencial: true, desc: 'Transporte público y logística crítica son servicios esenciales (Art. 4).' },
   banca: { esencial: true, desc: 'Banca y servicios financieros son regulados como servicios esenciales. Regulados por CMF.' },
-  salud: { esencial: true, desc: 'Salud publica y privada con servicios criticos son servicios esenciales (Art. 4).' },
-  gobierno: { esencial: true, desc: 'Todos los organismos de la Administracion del Estado son servicios esenciales por ley.' },
-  educacion: { esencial: false, desc: 'Instituciones de educacion superior pueden ser reguladas si prestan servicios esenciales.' },
-  mineria: { esencial: false, desc: 'Mineria puede ser calificada si sus operaciones impactan servicios esenciales.' },
+  salud: { esencial: true, desc: 'Salud pública y privada con servicios críticos son servicios esenciales (Art. 4).' },
+  gobierno: { esencial: true, desc: 'Todos los organismos de la Administración del Estado son servicios esenciales por ley.' },
+  educacion: { esencial: false, desc: 'Instituciones de educación superior pueden ser reguladas si prestan servicios esenciales.' },
+  mineria: { esencial: false, desc: 'Minería puede ser calificada si sus operaciones impactan servicios esenciales.' },
   tecnologia: { esencial: false, desc: 'Empresas tecnologicas pueden ser reguladas si proveen servicios a operadores esenciales.' },
   comercio: { esencial: false, desc: 'Comercio general no es servicio esencial, salvo que opere infraestructura critica.' },
   otro: { esencial: false, desc: 'Evaluar caso a caso segun el Art. 4 de la Ley 21.663.' },
@@ -824,9 +853,9 @@ function generateQuickWins(results) {
   results.forEach(r => {
     if (r.level === 0 && r.id === 9) qw.push({ title: 'Designar Delegado de Ciberseguridad', desc: 'Nombrar formalmente al delegado segun IG N 3. Requiere solo un documento firmado por la autoridad competente.', effort: 'low', icon: '👤' });
     if (r.level === 0 && r.id === 10) qw.push({ title: 'Inscribirse en Plataforma ANCI', desc: 'Registrarse en anci.gob.cl/registro-plataforma con Clave Unica y activar 2FA. Proceso online.', effort: 'low', icon: '📝' });
-    if (r.level <= 1 && r.id === 1) qw.push({ title: 'Aprobar Politica de Ciberseguridad', desc: 'Redactar y aprobar la politica institucional de ciberseguridad por la alta direccion.', effort: 'low', icon: '📜' });
+    if (r.level <= 1 && r.id === 1) qw.push({ title: 'Aprobar Política de Ciberseguridad', desc: 'Redactar y aprobar la política institucional de ciberseguridad por la alta dirección.', effort: 'low', icon: '📜' });
     if (r.level <= 1 && r.id === 15) qw.push({ title: 'Revisar Cuentas Administrativas', desc: 'Auditar cuentas con privilegios, eliminar no utilizadas y forzar cambio de contrasenas. Segun IG N 4 Art. 2.', effort: 'low', icon: '🔑' });
-    if (r.level <= 1 && r.id === 12) qw.push({ title: 'Capacitar en Taxonomia ANCI', desc: 'Entrenar al equipo en la clasificacion de incidentes segun Resolucion N 7/2025 (4 areas, 11 efectos).', effort: 'med', icon: '📚' });
+    if (r.level <= 1 && r.id === 12) qw.push({ title: 'Capacitar en Taxonomía ANCI', desc: 'Entrenar al equipo en la clasificación de incidentes según Resolución N 7/2025 (4 áreas, 11 efectos).', effort: 'med', icon: '📚' });
     if (r.level <= 1 && r.id === 8) qw.push({ title: 'Lanzar Campana de Ciberhigiene', desc: 'Iniciar campana basica de concientizacion: phishing, contrasenas, reporte de incidentes sospechosos.', effort: 'low', icon: '🎓' });
     if (r.level <= 1 && r.id === 13) qw.push({ title: 'Auditar Reglas de Cortafuegos', desc: 'Revisar y documentar las reglas actuales de firewall. Eliminar reglas obsoletas.', effort: 'med', icon: '🧱' });
     if (r.level <= 2 && r.id === 11) qw.push({ title: 'Documentar Procedimiento de Reporte', desc: 'Crear el procedimiento de alerta temprana en 3 horas con plantilla para CSIRT Nacional.', effort: 'low', icon: '⏰' });
@@ -857,14 +886,14 @@ function generateRisks(results) {
   const risks = [];
 
   results.forEach(r => {
-    if (r.level <= 1 && r.id === 11) risks.push({ title: 'Incumplimiento de reporte en 3 horas', desc: 'Sin procedimiento de reporte, un incidente no notificado en plazo puede significar multa de 10.001 a 20.000 UTM (infraccion grave, Art. 39).', severity: 'high', icon: '🚨' });
-    if (r.level <= 1 && r.id === 6) risks.push({ title: 'Sin capacidad de contencion', desc: 'No tener medidas de contencion (IG N 4) puede agravar un incidente y constituye infraccion grave (Art. 39).', severity: 'high', icon: '🔥' });
-    if (r.level === 0 && r.id === 9) risks.push({ title: 'Sin Delegado de Ciberseguridad', desc: 'No designar delegado es infraccion grave para OIV (Art. 39). No hay interlocutor valido ante la ANCI.', severity: 'high', icon: '⛔' });
-    if (r.level <= 1 && r.id === 2) risks.push({ title: 'Sin SGSI implementado', desc: 'No contar con Sistema de Gestion de Seguridad es infraccion grave para OIV. Base de todo el cumplimiento.', severity: 'high', icon: '📋' });
+    if (r.level <= 1 && r.id === 11) risks.push({ title: 'Incumplimiento de reporte en 3 horas', desc: 'Sin procedimiento de reporte, un incidente no notificado en plazo puede significar multa de 10.001 a 20.000 UTM (infracción grave, Art. 39).', severity: 'high', icon: '🚨' });
+    if (r.level <= 1 && r.id === 6) risks.push({ title: 'Sin capacidad de contención', desc: 'No tener medidas de contención (IG N 4) puede agravar un incidente y constituye infracción grave (Art. 39).', severity: 'high', icon: '🔥' });
+    if (r.level === 0 && r.id === 9) risks.push({ title: 'Sin Delegado de Ciberseguridad', desc: 'No designar delegado es infracción grave para OIV (Art. 39). No hay interlocutor válido ante la ANCI.', severity: 'high', icon: '⛔' });
+    if (r.level <= 1 && r.id === 2) risks.push({ title: 'Sin SGSI implementado', desc: 'No contar con Sistema de Gestión de Seguridad es infracción grave para OIV. Base de todo el cumplimiento.', severity: 'high', icon: '📋' });
     if (r.level <= 1 && r.id === 4) risks.push({ title: 'Sin Plan de Continuidad', desc: 'Ante un incidente mayor, sin BCP/DRP la organizacion no puede recuperar servicios. Infraccion grave Art. 39.', severity: 'high', icon: '💥' });
     if (r.level <= 2 && r.id === 14) risks.push({ title: 'Monitoreo insuficiente', desc: 'Sin EDR/SIEM/IDS no se detectan incidentes oportunamente. Aumenta tiempo de exposicion y dano potencial.', severity: 'medium', icon: '👁️' });
     if (r.level <= 2 && r.id === 5) risks.push({ title: 'Sin auditorias de seguridad', desc: 'No realizar auditorias periodicas impide identificar vulnerabilidades. Requerido por Art. 8 literal d).', severity: 'medium', icon: '🔍' });
-    if (r.level <= 1 && r.id === 8) risks.push({ title: 'Personal sin capacitacion', desc: 'El factor humano es la principal causa de incidentes. Sin formacion, aumenta riesgo de phishing y errores.', severity: 'medium', icon: '🧑‍💻' });
+    if (r.level <= 1 && r.id === 8) risks.push({ title: 'Personal sin capacitación', desc: 'El factor humano es la principal causa de incidentes. Sin formación, aumenta riesgo de phishing y errores.', severity: 'medium', icon: '🧑‍💻' });
   });
 
   if (risks.length === 0) risks.push({ title: 'Riesgo residual bajo', desc: 'No se identificaron riesgos criticos. Mantener monitoreo y mejora continua.', severity: 'low', icon: '✅' });
@@ -905,7 +934,7 @@ function generatePlan(results) {
     else if (g.cat === 'rep' || g.cat === 'ops') phases[2].items.push(item);
     else phases[3].items.push(item);
   });
-  phases[4].items.push('Re-evaluacion GAP completa', 'Preparacion para fiscalizacion ANCI', 'Compilar paquete de evidencia');
+  phases[4].items.push('Re-evaluación GAP completa', 'Preparación para fiscalización ANCI', 'Compilar paquete de evidencia');
 
   phases.forEach(p => {
     if (p.items.length === 0 && p !== phases[4]) return;
@@ -978,7 +1007,12 @@ function exportPlan() {
     text += el.querySelector('.timeline-desc').textContent.replace(/<br>/g, '\n') + '\n';
   });
 
-  text += `\n${'='.repeat(50)}\nTTPSEC SPA - Powered by TTPSEC.AI\n`;
+  text += `\n${'='.repeat(50)}\n`;
+  text += `AVISO LEGAL: Esta herramienta es de carácter académico y educativo.\n`;
+  text += `No está afiliada ni respaldada por ningún ente gubernamental, la ANCI,\n`;
+  text += `ni el Gobierno de Chile. No reemplaza una auditoría formal de ciberseguridad\n`;
+  text += `ni constituye asesoría legal.\n`;
+  text += `${'='.repeat(50)}\nTTPSEC SPA - Powered by TTPSEC.AI\n`;
 
   const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const a = document.createElement('a');
@@ -990,6 +1024,17 @@ function exportPlan() {
 // Init
 init();
 </script>
+
+<!-- DISCLAIMER FOOTER -->
+<div class="disclaimer-footer">
+  <div class="legal">
+    &#9888;&#65039; <strong>Aviso Legal:</strong> Esta herramienta es de carácter <strong>académico y educativo</strong>. No está afiliada, asociada ni respaldada por la Agencia Nacional de Ciberseguridad (ANCI), el CSIRT Nacional, ni ningún organismo del Estado de Chile.<br>
+    Los resultados generados son orientativos y <strong>no reemplazan una auditoría formal de ciberseguridad</strong>, una evaluación profesional de cumplimiento normativo, ni constituyen asesoría legal.<br>
+    Para cumplimiento oficial de la Ley 21.663, consulte directamente con profesionales certificados y los organismos competentes.
+  </div>
+  <div class="powered">Powered by TTPSEC.AI</div>
+  <div style="margin-top:4px; color:#475569; font-size:10px;">&copy; 2026 TTPSEC SPA. Todos los derechos reservados.</div>
+</div>
 
 </body>
 </html>
