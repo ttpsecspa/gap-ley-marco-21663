@@ -1,4 +1,4 @@
-<![CDATA[<!-- Banner -->
+<!-- Banner -->
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -634,4 +634,3 @@ MIT License — Copyright (c) 2026 TTPSEC SPA
 **Hecho con 🛡️ por [TTPSEC SPA](https://www.ttpsec.ai) — Contribuyendo a la ciberseguridad de Chile**
 
 </div>
-]]>

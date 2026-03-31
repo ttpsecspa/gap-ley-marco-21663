@@ -1,4 +1,4 @@
-<![CDATA[# 🔒 Política de Seguridad
+# 🔒 Política de Seguridad
 
 ## Versiones Soportadas
 
@@ -196,4 +196,3 @@ Agradecemos a quienes han reportado vulnerabilidades de forma responsable:
 ## 📄 Licencia
 
 MIT License — Copyright (c) 2026 TTPSEC SPA. Powered by TTPSEC.AI.
-]]>

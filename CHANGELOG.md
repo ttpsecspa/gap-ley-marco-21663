@@ -1,4 +1,4 @@
-<![CDATA[# Changelog
+# Changelog
 
 Todos los cambios notables en este proyecto se documentan en este archivo.
 
@@ -81,4 +81,3 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 - **Security**: Cambios relacionados con seguridad
 - **Removed**: Funcionalidad eliminada
 - **Deprecated**: Funcionalidad marcada para eliminación futura
-]]>

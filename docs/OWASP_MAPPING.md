@@ -1,4 +1,4 @@
-<![CDATA[# 🔒 Mapeo OWASP Top 10 — GAP Analysis Ley 21.663
+# 🔒 Mapeo OWASP Top 10 — GAP Analysis Ley 21.663
 
 Este documento mapea los controles de seguridad implementados en la aplicación al [OWASP Top 10 (2021)](https://owasp.org/Top10/).
 
@@ -163,4 +163,3 @@ A10 SSRF                       ⚪ ████████████ N/A (sin
 - [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)
 - [Mapeo CWE](CWE_MAPPING.md)
 - [Política de Seguridad](../SECURITY.md)
-]]>

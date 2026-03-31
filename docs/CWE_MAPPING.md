@@ -1,4 +1,4 @@
-<![CDATA[# 🔒 Mapeo CWE — GAP Analysis Ley 21.663
+# 🔒 Mapeo CWE — GAP Analysis Ley 21.663
 
 Este documento mapea los controles de seguridad implementados en la aplicación a las debilidades del [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/).
 
@@ -127,4 +127,3 @@ La directiva `script-src 'self' 'unsafe-inline'` es necesaria debido a la arquit
 - [CWE/SANS Top 25 Most Dangerous Software Weaknesses](https://cwe.mitre.org/top25/)
 - [Mapeo OWASP Top 10](OWASP_MAPPING.md)
 - [Política de Seguridad](../SECURITY.md)
-]]>

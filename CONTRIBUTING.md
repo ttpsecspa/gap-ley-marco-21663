@@ -1,4 +1,4 @@
-<![CDATA[# 🤝 Guía de Contribución
+# 🤝 Guía de Contribución
 
 ¡Gracias por tu interés en contribuir a GAP Analysis Ley 21.663! Este documento describe las convenciones y procesos para contribuir al proyecto.
 
@@ -299,4 +299,3 @@ Al contribuir, aceptas que tus contribuciones se licencien bajo la [Licencia MIT
 **TTPSEC SPA** — Powered by TTPSEC.AI
 
 </div>
-]]>
