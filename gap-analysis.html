@@ -391,6 +391,179 @@ body {
 }
 .heatmap-cell:hover .tooltip { display: block; }
 
+/* === HERO / PORTADA === */
+/* === HERO / PORTADA (TTPSEC Style) === */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--slate-50);
+  padding: 48px 16px 64px;
+}
+.hero-inner {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+.hero-logo {
+  width: 80px; height: 80px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-brand {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--blue-900);
+  letter-spacing: -0.025em;
+  margin-bottom: 4px;
+}
+.hero-brand span { color: var(--slate-500); font-weight: 500; font-size: 11px; letter-spacing: 0; }
+/* Status badges (TTPSEC Badge Pattern) */
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+.hero-badge--green { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.hero-badge--blue { background: var(--blue-50); color: var(--blue-700); border: 1px solid var(--blue-200); }
+.hero-badge--purple { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+/* Title section */
+.hero-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--blue-900);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.hero-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--slate-600);
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+/* Feature cards (TTPSEC Card Pattern) */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.hero-feature {
+  background: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  padding: 20px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all 150ms ease;
+}
+.hero-feature:hover { box-shadow: var(--shadow-md); border-color: #bfdbfe; transform: translateY(-2px); }
+.hero-feature-icon { font-size: 28px; margin-bottom: 8px; }
+.hero-feature-title { font-size: 13px; font-weight: 800; color: var(--slate-900); margin-bottom: 4px; }
+.hero-feature-desc { font-size: 11px; color: var(--slate-500); line-height: 1.5; }
+/* Context selector */
+.hero-context-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-700);
+  margin-bottom: 12px;
+}
+.hero-contexts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.hero-context-card {
+  background: white;
+  border: 2px solid var(--slate-200);
+  border-radius: 16px;
+  padding: 20px 12px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  text-align: center;
+}
+.hero-context-card:hover { border-color: var(--blue-500); box-shadow: 0 4px 12px rgba(37,99,235,0.1); transform: translateY(-2px); }
+.hero-context-card.selected { border-color: var(--blue-600); background: var(--blue-50); box-shadow: 0 4px 12px rgba(37,99,235,0.15); }
+.hero-context-icon { font-size: 28px; margin-bottom: 6px; }
+.hero-context-name { font-size: 13px; font-weight: 800; color: var(--slate-900); margin-bottom: 2px; }
+.hero-context-sub { font-size: 10px; color: var(--slate-500); }
+/* CTA (TTPSEC Primary CTA) */
+.hero-cta {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 20px rgba(37,99,235,0.2);
+  transition: all 150ms ease;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 8px 24px rgba(37,99,235,0.3); }
+.hero-ref {
+  margin-top: 12px;
+  font-size: 10px;
+  color: var(--slate-400);
+  font-family: ui-monospace, 'Cascadia Mono', 'Fira Code', monospace;
+}
+.hero-version {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--slate-400);
+  font-family: ui-monospace, 'Cascadia Mono', 'Fira Code', monospace;
+}
+.hero-version strong { color: var(--blue-800); }
+/* Progress bar decorative */
+.hero-progress {
+  max-width: 400px;
+  margin: 0 auto 24px;
+  height: 6px;
+  background: var(--slate-200);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.hero-progress-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--blue-600), #6366f1);
+  border-radius: 9999px;
+}
+@media (max-width: 768px) {
+  .hero { padding: 24px 16px 40px; }
+  .hero-logo { width: 56px; height: 56px; margin-bottom: 16px; border-radius: 14px; }
+  .hero-brand { font-size: 15px; margin-bottom: 2px; }
+  .hero-badges { gap: 6px; margin-bottom: 16px; }
+  .hero-badge { font-size: 9px; padding: 3px 8px; }
+  .hero-progress { margin-bottom: 16px; height: 4px; }
+  .hero-title { font-size: 26px; margin-bottom: 4px; }
+  .hero-subtitle { font-size: 13px; margin-bottom: 16px; }
+  .hero-features { grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
+  .hero-feature { padding: 14px 16px; display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; gap: 0 10px; text-align: left; border-radius: 12px; }
+  .hero-feature-icon { grid-row: 1 / 3; font-size: 24px; align-self: center; text-align: center; margin-bottom: 0; }
+  .hero-feature-title { font-size: 12px; }
+  .hero-feature-desc { font-size: 10px; }
+  .hero-context-label { font-size: 12px; margin-bottom: 10px; }
+  .hero-contexts { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+  .hero-context-card { padding: 12px 6px; border-radius: 12px; border-width: 1.5px; }
+  .hero-context-icon { font-size: 22px; margin-bottom: 4px; }
+  .hero-context-name { font-size: 11px; }
+  .hero-context-sub { font-size: 9px; }
+  .hero-cta { width: 100%; font-size: 15px; padding: 14px 24px; border-radius: 12px; }
+  .hero-ref { font-size: 9px; margin-top: 10px; }
+  .hero-version { margin-top: 12px; font-size: 10px; }
+}
+
 /* === SECTIONS VISIBILITY === */
 .section { display: none; }
 .section.active { display: block; animation: fadeIn 0.3s ease; }
@@ -444,12 +617,21 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .disclaimer-banner { font-size: 10px; padding: 8px 12px; }
+  .nav { padding: 0 12px; height: 48px; }
+  .nav-powered { display: none !important; }
+  .nav-logo-img { width: 24px !important; height: 24px !important; }
+  .nav-title { font-size: 13px; }
+  .nav-title span { font-size: 11px; }
+  .nav-badge { font-size: 9px; padding: 2px 6px; }
   .container { padding: 16px; }
   .form-grid { grid-template-columns: 1fr; }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
   .section-grid { grid-template-columns: 1fr; }
-  .steps-bar { flex-direction: column; }
-  .nav { padding: 0 16px; }
+  .steps-bar { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px; }
+  .step-item { min-width: auto; padding: 6px 10px; }
+  .step-num { width: 24px; height: 24px; font-size: 11px; }
+  .step-text { font-size: 10px; }
 }
 </style>
 </head>
@@ -463,18 +645,82 @@ body {
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-brand">
-    <img class="nav-logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAK0ElEQVR42u1Xe3BU5RX/ffe9d3eT3TzJA8kOEEJiAggaHyhBg2+royZa1Gol1bEI9dFatTPdbK3OFLWKUjtAfVsfGxUfFZCHIYL4YkESFAIKISTknc0mu3d37977T/9gcZApAQKt0xl/M3e+7957vu/+5nfO+c65wE/4EeD1ghvmNTvS86Os+6/gB2SIvr9nR7I7xObkgg5RYPGtJTPrvTMEAKj3zhDqvTMEv7+KP9R+8W1TxUOfL6kpKlxSU1QIAP6qH9qeVLWenzfpyefnTpoLABcD8qEG/numXLfsvqlvAxAOWyt6q4odz82bXP+PX08ZcwxhctR4+YFyDID/91NTDCbcbJlW5Y2Pfvmz5X+e/qQg8bNkAS/zjOsjsLO+bg/fNKhzQmmuvMUh4VVe5AfCMfNCEEqsiH5NV0ifIMp8DcD/cfZfPv2KDmxOJ0Sw3jtDmOlrMN556NwbTNAfGGPLUp3SjG/2G+es+LIfkwoUyALQ0hXBuw17YDCnecHpOXxxvghJYGjaHUTCMDHnkoIEz+ixeMyYzADLaMq5srquzkxyOCJJ4WgKV6DCqvdC0exCqcxYX1jTA6lpSsTqjJ7TsLk38XHAYHE9gUQsCpDO5+W5+Y2N/daHn0Yt00hAjw5RWWE653Qp+2PhxIeKg8/iGPPQ9P4y1GELHXTRETBsHJC/imM+n0X5zitlh5Qr26WvMgpSPp520wePnF2W2nxumVuURZ5LUU0hxSkKosAzwzDgUAUuVSUh1c4EQRC5+bOL+eKJmQ9ceu+aBptT+UJUpb02Van58KVZ9qO5eFiC6zK7GQAoqnCKYpebFacsmxrjASB/jKtuWkkahiJhK909CYqciYRhIM19CogY3K5SGJadMl0C7xnj6ssuy13p9Xo5SZFkNUVpEVVJkUxVPBjnx02QCKyiosHcsuxml+y0SapTuVBW5aYLak7rAYBRo13NGWkcctMrMOus56BpQRQUTMLUqdcgOLAbhQXVOPPUBTQqPRXpWWobl7Yg6PP5LEeK/V+STZympiiO9HR1IgDUekdAEDiQYYoLLtkunSOr0ts2p3zGihX9otcLDhlOOzEO+RmVME0DZ54+D5kZ4+B2Z6Os5Ba43WORkXoq7PI4cDKplmmKACCniFNtTqVLtom7RYd0BQBUVHi54ybIGIgIrKlH26fYpT5bijJBUuVvP//86YTPByu0d6By174IOB4wDA172zZgYtEFOGPaDSDE0dn9FVSbyrV0BqmnL+4BnhxHXi9HPN+oOGSHzWnL5m1SAAB6er45/iwm8nKM+ayu5txSy6KYlTDTCEysrSV+VGN+6fJ/br1y7Wfdlhn384Xjz8QZp82Dpm3Hzm/XIT1tIsZkX42tjS+grbvZerPOEowdPbUX+TZc137tnecC4Aik2AQh70Dpq7NG4OJaAgBOkbp5gSt3ZDhfcrhVz4qnLsnOKvW8u3J7TOwPWQjHdrL3P6rCF4FF6OtvxeBgN/bv34QV627EV81Pw6bw/CurdputMap+ee7km9MK0hQ11bZbtksdvMDnH8hiL3/cCjLGiLxejo3x7V/7zKWvhnrC88BzXVY46os5HKM/+7qXVInj9IQIw4wjxZmL4qJZyM0Zh9H5bRgYeBdEFmRZxEBokK3Z2o3bzj9l/sPr/5cUYRRil0W7anOOw4c1D5zRAd1LXzwe4ulHZ+2OBmP9mg48bHqlGtKxmVuKvXYT28IRCxFsDiTkyEIEgRBgShK4DgRHCeA4wSYhgGAsXPKsnRNi3f0tvQ7QHhTVIQ5VmKfG0BbbS24I1WTYbuKigqwO309xs8vGjugqMJ8V6a9iywwWeE9pSXpmR9u7DTDUZNjTENH51aEQp0QJeCzz5diKNIK02IYGBi0qi8Zz107cwzftju4y+5WdzncykWSIjTXLN76IgDO52uwRt4seL0c8/msOt/0cp7Yo4ZhvjQ0lFCnlOcvaBkw5Uf+3ogt23st09QB0pGRmck4XqTBwRhElsAtV4/lfnVtEfZ83bmpc9/AbzKzHfcYJrVWP/TJPURgyTJHIydIYHXVVVxKeSgXPD3M82wKA9vY2Tn0aXnl2DzLwp+Wr2vjVjXsRdOObtjsqSjId6F4rIqrLjwFY3IdTTu2dt0f0+IznA5pMgekaVricUfUfHMdGiyfD9YJdTOH269aeHG5IPPXyAo/2khYIeK5rinlee5w2LykZyCKaMy0Z2coQbtN7NGj+lvbNu0/1emUFd2wFGZayyJDkfrL72voHFHLPrySxAKBgDBt2rTEmhd+kee26TPjhqVIIs7TYwn0DeDxy+e93Qx8YEPgvfCqL7vuTnOJ02OGuVnmlL0x3Wo975dvrAWAhQsXyjk5843qamYN597/yQ8LkVc4kT2EY1GOMUZEZAPwNwApodBAJBGPBTOyRuUlTEtqqP/o0crKytsA5Oi6/qwsy6+/9jLVdvcE84uKfnv3y8/RIpsKT2NT4Gkm7H630FP1WCweL9kSeGvu04tnN9fW1jKfz2cdd7Nw8MD2er0cAOro6KBYLHaN31+3a3vzrm7Lsq595+23ujiO8wSDwSsCgcB+XdcW3HXXhgujUd0b2PzGjltvenBCOBK5ccPGN75cv/HF9vFjq+Z3drXM3rJl+cpFS+4LM8ZO3MVExCfH6S0tLfuSc6mvr68fQAYRXblt27YvGhu/uaynp3339df7z3/mqcF+AFj+Hl2w8K+dXXfdVT8NAJ5bQvV33F63ILlHERG5DnpqRAoelkynxeNxjYg4AJN1XRfLysqiAPI9Hk9xTk7m8++9t3LZ669Xr1cUNVFT88rlff1IycxwpeVle96fUnLpRMaQ0dnRt52Izvt4CbY3rYuvTO6HEyF4ELmRSKSTMWYByInH4+HGxsYIgPG7du1qevDBB6+aM2eOF0DCIn7dqMxxM40Exm9r2lz/uwcKcmbf8myrnohlr6l/czuA1pQ8BB1urmO4TD5WglzSBVM0TetPzifpuq4n5+VdXV1NS5cu3UhE0VeepzkOFbPa2rf2EqF07PiJp77yAj0RDrc6OU7QFj3x2r1PPDo0afJlmOCZJFYNF4fH9vPMmM4Yo9bW1hWrV69exhijwcHBLevXr3+WMUYtLS3vr127dlXS1tzX1jG+ft3rb7zw0u0L+3r7Puru/m5DYPOafJ+vnOJR4br+ULfyxaZXSxljPYwx42AyjjRBJCIqJaLc9evXu/fs2TOKiCbs3bs3t6mpaTQRlVdVVUktLS05kUgk70Dgt59L9MkYIsoh+jbrs503pBB5HUSUSUSZ3d2rC4n2lRFRARFNGS5J2DGcfy4A9wOwJ6+O5DoJwE4AhQACAEoAtCbfnw0gzTTNfTzP9wLwAHACsADsAZCRvAQAqxljrxIRzxgzR9AskABAAeDRdZ0kSdoDQNI0zRYMBuNpaWlqPB4fcrlcqaFQiE9NTTWj0Sji8ThzuVxBTdPsqqoyAEXRaHSnzWbrSRITkt/XGGPxk9UsAAA0TTurt7f3AQB9ROSKx+OrVVVtNQyjEoAmCAJisVi3JElriKiS5/liwzDMgoKCuUkVT16pOyw+OABWMBhsj0QiSxljEQCypmmhWCzWyfN8eygUGsrKyio0TTOs6zokSdocDAa/MwxDICL6T6KclGryfwUiYn6/nyci7uBIROyw8fu53+/n/X4/j5/wI+DfMPY2KnMy0vUAAAAASUVORK5CYII=" alt="TTPSEC" style="width:32px;height:32px;border-radius:8px;">
+    <img class="nav-logo-img" src="data:image/png;base64,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" alt="TTPSEC" style="width:32px;height:32px;border-radius:8px;">
     <div>
       <div class="nav-title">GAP Analysis <span>Ley 21.663</span></div>
     </div>
-    <div class="nav-badge">v1.1</div>
+    <div class="nav-badge">v1.4</div>
   </div>
   <div class="nav-right">
     <div class="nav-powered"><strong style="color:#1e3a8a;letter-spacing:-0.025em;">TTPSEC</strong> &mdash; Powered by <strong>TTPSEC.AI</strong></div>
   </div>
 </nav>
 
-<div class="container">
+<!-- PORTADA / HERO -->
+<div id="hero" class="hero">
+  <div class="hero-inner">
+    <img src="data:image/png;base64,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" alt="TTPSEC" class="hero-logo">
+    <div class="hero-brand">TTPSEC <span>| GAP Analysis</span></div>
+
+    <!-- Status badges (TTPSEC Pattern) -->
+    <div class="hero-badges">
+      <span class="hero-badge hero-badge--green">An&#243;nimo</span>
+      <span class="hero-badge hero-badge--blue">Seguro</span>
+      <span class="hero-badge hero-badge--purple">Sin Rastreo</span>
+    </div>
+
+    <!-- Progress bar decorative -->
+    <div class="hero-progress"><div class="hero-progress-bar"></div></div>
+
+    <h1 class="hero-title">GAP Analysis</h1>
+    <h2 class="hero-subtitle">Ley 21.663 &#8212; Marco de Ciberseguridad de Chile</h2>
+
+    <!-- Feature cards (TTPSEC Card Pattern) -->
+    <div class="hero-features">
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#128272;</div>
+        <div class="hero-feature-title">100% An&#243;nimo</div>
+        <div class="hero-feature-desc">Sin registro, sin cookies, sin tracking. Tu evaluaci&#243;n es completamente privada.</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#127760;</div>
+        <div class="hero-feature-title">Marcos Internacionales</div>
+        <div class="hero-feature-desc">ISO 27001, NIST CSF 2.0, NIST 800-53, CIS v8.1, ISA 62443, NERC CIP.</div>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#9889;</div>
+        <div class="hero-feature-title">Resultados Inmediatos</div>
+        <div class="hero-feature-desc">Procesamiento 100% en tu navegador. Ning&#250;n dato sale de tu dispositivo.</div>
+      </div>
+    </div>
+
+    <!-- Context selector -->
+    <p class="hero-context-label">Selecciona tu contexto organizacional:</p>
+    <div class="hero-contexts">
+      <div class="hero-context-card selected" onclick="selectContext(this,'ti')">
+        <div class="hero-context-icon">&#128187;</div>
+        <div class="hero-context-name">TI Corporativo</div>
+        <div class="hero-context-sub">Oficinas, servidores, nube</div>
+      </div>
+      <div class="hero-context-card" onclick="selectContext(this,'ot')">
+        <div class="hero-context-icon">&#9881;&#65039;</div>
+        <div class="hero-context-name">OT / ICS</div>
+        <div class="hero-context-sub">SCADA, DCS, PLCs</div>
+      </div>
+      <div class="hero-context-card" onclick="selectContext(this,'ic')">
+        <div class="hero-context-icon">&#9889;</div>
+        <div class="hero-context-name">Infraestructura Cr&#237;tica</div>
+        <div class="hero-context-sub">Energ&#237;a, agua, transporte</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary hero-cta" onclick="startApp()">Comenzar Evaluaci&#243;n</button>
+    <p class="hero-ref">Basado en: Ley 21.663 | Instrucciones Generales ANCI 1-4 de 2025 | MITRE ATT&amp;CK</p>
+    <p class="hero-version">v1.4 · Build 2026-03-30 · Powered by <strong>TTPSEC.AI</strong></p>
+  </div>
+</div>
+
+<div class="container" id="app-container" style="display:none;">
 
   <!-- STEPS -->
   <div class="steps-bar">
@@ -1087,29 +1333,57 @@ function exportPlan() {
   a.click();
 }
 
+// Context selector
+var orgContext = 'ti';
+function selectContext(el, ctx) {
+  document.querySelectorAll('.hero-context-card').forEach(function(c) { c.classList.remove('selected'); });
+  el.classList.add('selected');
+  orgContext = ctx;
+}
+
+// Start app from hero
+function startApp() {
+  document.getElementById('hero').style.display = 'none';
+  document.getElementById('app-container').style.display = 'block';
+  document.getElementById('app-footer').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // Init
 init();
 </script>
 
 <!-- DISCLAIMER FOOTER (TTPSEC Footer Pattern) -->
-<div class="disclaimer-footer">
+<div id="app-footer" class="disclaimer-footer" style="display:none">
   <div class="legal">
-    <p style="font-size:12px; font-weight:800; color:#92400e; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">&#9888;&#65039; Plataforma académica y educativa</p>
-    Esta herramienta no está afiliada, asociada ni respaldada por la Agencia Nacional de Ciberseguridad (ANCI), el CSIRT Nacional, ni ningún organismo del Estado de Chile.<br>
-    Los resultados generados son orientativos y <strong>no reemplazan una auditoría formal de ciberseguridad</strong>, una evaluación profesional de cumplimiento normativo, ni constituyen asesoría legal.<br>
+    <p style="font-size:12px; font-weight:800; color:#92400e; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">&#9888;&#65039; Plataforma acad&#233;mica y educativa</p>
+    Esta herramienta no est&#225; afiliada, asociada ni respaldada por la Agencia Nacional de Ciberseguridad (ANCI), el CSIRT Nacional, ni ning&#250;n organismo del Estado de Chile.<br>
+    Los resultados generados son orientativos y <strong>no reemplazan una auditor&#237;a formal de ciberseguridad</strong>, una evaluaci&#243;n profesional de cumplimiento normativo, ni constituyen asesor&#237;a legal.<br>
     Para cumplimiento oficial de la Ley 21.663, consulte directamente con profesionales certificados y los organismos competentes.
   </div>
+  <p style="font-size:11px; color:var(--slate-500); max-width:600px; margin:16px auto; line-height:1.6;">
+    Herramienta independiente desarrollada por <strong style="color:var(--blue-800);">TTPSEC</strong>, alineada con los 9 B&#225;sicos de la Ciberseguridad publicados por la ANCI. Ning&#250;n dato es almacenado ni transmitido fuera de tu navegador.
+  </p>
   <img src="data:image/png;base64,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" alt="TTPSEC" style="height:32px; width:auto; margin-bottom:12px;">
-  <p style="font-size:12px; color:#0f172a; margin-bottom:2px;"><strong style="color:#1e3a8a;">TTPSEC</strong> | GAP Analysis Ley 21.663</p>
+  <p style="font-size:12px; color:#0f172a; margin-bottom:2px;"><strong style="color:#1e3a8a;">TTPSEC</strong> | Asesor basado en los 9 B&#225;sicos de la Ciberseguridad - ANCI Chile</p>
   <div class="powered">Powered by TTPSEC.AI</div>
-  <div class="tagline">Software para el bien común</div>
+  <div class="tagline">Software para el bien com&#250;n</div>
+  <div style="margin-top:12px; font-size:10px; color:var(--slate-400); font-family:ui-monospace,monospace; line-height:2;">
+    Sin cookies | Sin registro | Sin analytics | Procesamiento 100% local | UTF-8 | MIT License
+  </div>
+  <div style="margin-top:8px; font-size:10px; color:var(--slate-400); font-family:ui-monospace,monospace; line-height:1.6;">
+    ISO/IEC 27001:2022 | NIST CSF 2.0 | NIST 800-53 Rev.5 | CIS v8.1 | ISA/IEC 62443 | NERC CIP
+  </div>
+  <div style="margin-top:8px;">
+    <a href="https://www.ttpsec.ai" target="_blank" rel="noopener noreferrer" style="font-size:11px; color:var(--blue-600); text-decoration:none; font-weight:600;">www.ttpsec.ai</a>
+  </div>
   <div style="margin-top:10px; display:flex; justify-content:center; gap:16px; align-items:center; flex-wrap:wrap;">
-    <span style="font-size:10px; font-weight:700; color:#2563eb; background:#eff6ff; border:1px solid #bfdbfe; padding:3px 10px; border-radius:9999px; font-family:ui-monospace,monospace;">v1.1</span>
+    <span style="font-size:10px; font-weight:700; color:#2563eb; background:#eff6ff; border:1px solid #bfdbfe; padding:3px 10px; border-radius:9999px; font-family:ui-monospace,monospace;">v1.4</span>
     <span style="font-size:10px; color:#94a3b8; font-family:ui-monospace,monospace;">Build: 2026-03-30</span>
   </div>
   <div style="margin-top:6px; color:#94a3b8; font-size:10px; font-family:ui-monospace,monospace;">&copy; 2026 TTPSEC SPA. Todos los derechos reservados.</div>
   <div style="border-top:1px solid #e2e8f0; padding-top:16px; margin-top:16px;">
-    <p style="font-size:12px; color:#94a3b8; margin-bottom:8px;">Si esta herramienta te fue útil, puedes recomendar al autor:</p>
+    <p style="font-size:12px; color:#94a3b8; margin-bottom:8px;">Si esta herramienta te fue &#250;til, puedes recomendar al autor:</p>
     <a href="https://www.linkedin.com/in/profesorsvargasy/details/recommendations/edit/write?profileFormEntryPoint=Detail" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:12px; background:#0A66C2; color:white; font-size:14px; font-weight:700; text-decoration:none; box-shadow:0 4px 14px rgba(10,102,194,0.25); transition:all 0.2s;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       Recomendar en LinkedIn
